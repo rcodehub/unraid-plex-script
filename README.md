@@ -71,3 +71,11 @@ If you see anything that could be improved or doesn't work right please start a 
 
 - What's Backed Up?
 
+According to Plex the main data that should be backed up are the user databases and the preferences file.
+- https://support.plex.tv/articles/201539237-backing-up-plex-media-server-data/
+
+I take it a step further and also backup the Plug-ins preferences.  These files contain the settings for your plugins
+such as the Plex media scrapers, as well as any user installed plugins (WebTools, Trakt, etc).
+
+User installed Plugins are NOT backed up, though.  Any plugins would need to be reinstalled on a new instance of Plex
+but your configuration settings would be saved.
