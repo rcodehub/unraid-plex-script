@@ -26,7 +26,10 @@ The initial, basic, script was created on the Unraid forum.
  usage rather than file backup from the first script, and added in a couple extra things!
  
 
-- CONFIGURATION - 
+<hr>
+
+
+- CONFIGURATION
 
 There are seven user variables to configure in the script:
 
