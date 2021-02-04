@@ -7,11 +7,15 @@ This script can be used with the User Scripts plugin for Unraid to schedule runt
 The idea behind this script was to be able to back up essential Plex databases (only) to preserve library information,
 watch history, etc, in the event of needing to restore to a new installation of Plex or a corrupted set of databases.
 
+Originally I did not want to use CA Appdata Backup to back up all of Plex's data nightly because of the amount of data
+involved and excluding only certain folders was too complex for that plugin. 
+
 I figured that the process of recreating metadata (images, etc) would be easy enough and didn't need to be in a daily backup routine.
 
 After testing the restore process on a real Plex instance I thought it would be neat to have an option of creating a full backup
-with all metadata.  The process of getting metadata to refresh in Plex was actually quite a hassle, spent a lot of time trying
-to force Plex to refresh the images.
+with all metadata, just not every single time.  The process of getting metadata to refresh in Plex was actually quite a hassle
+and I spent a lot of time trying to force Plex to refresh the images.  Worst case scenario I can restore most of the metadata
+and only have to refresh for a few new items.
 
 Therefore, this script was born... or more accurately, re-born.  This is sort of a version 3.0 to the backup logic.
 
@@ -62,3 +66,8 @@ keep_full - number of full backups to keep - these can be very large
 Once you set those options to your liking you can save the script and schedule it using User Script's built in cron function.
 
 If you see anything that could be improved or doesn't work right please start a topic about it!  Let's create a great script together!
+
+<hr>
+
+- What's Backed Up?
+
