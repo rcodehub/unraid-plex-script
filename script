@@ -106,17 +106,25 @@ fi
 
 if [ $notify == yes ]; then
 	if [ $fullbackup == no ]; then
-			if [ "$cf" = "false" ]; then
+			if [ "$cf" == "false" ]; then
 				/usr/local/emhttp/webGui/scripts/notify -e "Unraid Server Notice" -s "Plex Backup" -d "Essential Plex data has been backed up." -i "normal"
-				echo -e  Essential backup: "$(du -sh $dest/Essential/$dt/)\n"
+				if [ -d "$dest/Essential/$dt/" ]; then
+				    echo -e  Essential backup: "$(du -sh $dest/Essential/$dt/)\n"
+				fi
 			else
 				/usr/local/emhttp/webGui/scripts/notify -e "Unraid Server Notice" -s "Plex Backup" -d "Essential & Full Plex data has been backed up." -i "normal"
-				echo -e  Essential backup: "$(du -sh $dest/Essential/$dt/)\n"
-				echo -e  Full backup: "$(du -sh $dest/Full/$dt/)\n"
+				if [ -d "$dest/Essential/$dt/" ]; then
+				    echo -e  Essential backup: "$(du -sh $dest/Essential/$dt/)\n"
+				fi
+				if [ -d "$dest/Full/$dt/" ]; then
+				    echo -e  Full backup: "$(du -sh $dest/Full/$dt/)\n"
+				fi
 			fi
 	else
 		/usr/local/emhttp/webGui/scripts/notify -e "Unraid Server Notice" -s "Plex Backup" -d "Complete Plex data has been backed up." -i "normal"
-		echo -e  Full backup: "$(du -sh $dest/Full/$dt/)\n"
+		if [ -d "$dest/Full/$dt/" ]; then
+		    echo -e  Full backup: "$(du -sh $dest/Full/$dt/)\n"
+		   fi
 	fi
 fi
 
